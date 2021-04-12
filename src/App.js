@@ -22,17 +22,7 @@ const App = () => {
     setVotes(votesCopy)
   }
 
-  const mostVotes = () => {
-    let max = 0
-    let indexMax = 0
-    votes.forEach((item, index) => {
-      if (item > max) {
-        max = item
-        indexMax = index
-      }
-    })
-    return indexMax
-  }
+  const mostVoted = votes.indexOf(Math.max(...votes))
 
   return (
     <div>
@@ -42,8 +32,8 @@ const App = () => {
       <Button handleClick={nextQuote} text='next anecdote' />
       <Button handleClick={upVote} text='vote' />
     <h1>Anecdote with most votes</h1>
-      <p>{anecdotes[mostVotes()]}</p>
-      <p>has {votes[mostVotes()]} votes</p>
+      <p>{anecdotes[mostVoted]}</p>
+      <p>has {votes[mostVoted]} votes</p>
     </div>
   )
 }
